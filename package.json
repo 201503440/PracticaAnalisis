@@ -1,0 +1,22 @@
+{
+  "name": "practicaanalisis",
+  "version": "1.0.0",
+  "description": "Practica 3 Analisis y diseño de sistemas 1",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/201503440/PracticaAnalisis.git"
+  },
+  "author": "Cesar Sazo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/201503440/PracticaAnalisis/issues"
+  },
+  "homepage": "https://github.com/201503440/PracticaAnalisis#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
