@@ -1,5 +1,12 @@
 module.exports  = function(app) {
     var main = require('../Controllers/MainController.js');
+    var test = require('../Controllers/TestController.js');
+
     app.route('/').get(main.initMain);
-    app.route('/testRoute').get(main.Test);
+
+    // ===================================== RUTAS ARIELBM =====================================
+    app.route('/test/getUser').get(test.getUser);
+    app.route('/test/setUser').post(test.setUser)
+    // =================================== FIN RUTAS ARIELBM ===================================
+
 }
