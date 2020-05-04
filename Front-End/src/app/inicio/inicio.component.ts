@@ -19,5 +19,6 @@ export class InicioComponent implements OnInit {
       duration: 2000,
     });
   }
+  
 
 }
