@@ -30,7 +30,17 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Dashboard</a>
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <strong>Código de Usuario:</strong> {{ miUsuario["idUsuario"] }}
+                <br>
+                <strong>Número de Cuenta:</strong>  {{ miUsuario["idCuenta"] }}
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <strong>Nombre de Usuario:</strong> {{ miUsuario["UserName"] }}
+                <br>
+              </div>
+            </div>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
