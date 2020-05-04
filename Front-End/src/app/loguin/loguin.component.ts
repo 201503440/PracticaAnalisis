@@ -12,6 +12,7 @@ export class LoguinComponent implements OnInit {
   constructor(private serv: ServLoginService) { }
 
   ngOnInit() {
+    localStorage.removeItem('currentUser');
   }
 
   login(event){    

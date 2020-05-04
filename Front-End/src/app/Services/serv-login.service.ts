@@ -30,7 +30,7 @@ export class ServLoginService {
         this.matSnackBar.open('DATOS NO VALIDOS.!', 'Aceptar', {
           duration: 2000,
         });
-      } else {
+      } else {        
         localStorage.setItem('currentUser', JSON.stringify(data));
         this.router.navigate(['/index']);
       }
