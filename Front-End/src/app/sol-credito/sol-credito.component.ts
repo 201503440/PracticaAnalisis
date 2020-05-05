@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { RequestCreditService } from '../Services/request-credit.service'}
+import { RequestCreditService } from '../Services/request-credit.service'
 import { Router } from "@angular/router";
 
 @Component({
@@ -32,8 +32,8 @@ export class SolCreditoComponent implements OnInit {
       this.servicio.requestCredit({
         'monto': this.monto,
         'descripcion':this.descripcion,
-        'cuenta':this.miUsuario[''],
-        'usuario':this.miUsuario['']
+        'cuenta':this.miUsuario['idCuenta'],
+        'usuario':this.miUsuario['idUsuario']
       }).subscribe(data => {
   
         console.log(data);
