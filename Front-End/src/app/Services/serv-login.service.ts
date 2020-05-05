@@ -32,7 +32,7 @@ export class ServLoginService {
         });
       } else {        
         localStorage.setItem('currentUser', JSON.stringify(data));
-        this.router.navigate(['/index']);
+        this.router.navigate(['/principal']);
       }
 
       });

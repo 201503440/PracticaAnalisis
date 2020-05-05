@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title"> <strong>Solicitar un Crédito Monetario</strong></h4>
+            <p class="card-category">Por favor llene el siguiente formulario.</p>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label style="font-size: 18px;" class="bmd-label-floating">Monto:</label>
+                            <input type="number" min="100" step="any" class="form-control" placeholder="Q100.00" [(ngModel)]="monto" name="monto">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label style="font-size: 18px;">Motivo de la Solicitud:</label>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="5" placeholder="Ingrese una breve descripción de la razón de su solicitud" [(ngModel)]="descripcion" name="descripcion"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary pull-right" (click)="solicitar()">Solicitar</button>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+</div>
