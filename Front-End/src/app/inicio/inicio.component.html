@@ -15,20 +15,20 @@
     </div>
     <div class="sidebar-wrapper">
       <ul class="nav">
-        <li class="nav-item active  ">
-          <a class="nav-link" routerLink="/principal">
+        <li [ngClass]="(seleccion1)?'nav-item active':'nav-item'">
+          <a class="nav-link" routerLink="/principal" (click)="ponerFalso(true,false,false)">
             <i class="material-icons">dashboard</i>
             <p>Dashboard</p>
           </a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link" routerLink="/principal/solicitar-credito">
+        <li [ngClass]="(seleccion2)?'nav-item active':'nav-item'">
+          <a class="nav-link" routerLink="/principal/solicitar-credito" (click)="ponerFalso(false,true,false)">
             <i class="material-icons">credit_card</i>
             <p>Solicitar Crédito</p>
           </a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link" routerLink="/principal/gestionar-solicitudes">
+        <li  [ngClass]="(seleccion3)?'nav-item active':'nav-item'">
+          <a class="nav-link" routerLink="/principal/gestionar-solicitudes" (click)="ponerFalso(false,false,true)">
             <i class="material-icons">assignment</i>
             <p>Gestionar Solicitudes</p>
           </a>
