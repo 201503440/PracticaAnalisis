@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RequestCreditService } from '../Services/request-credit.service'
 import { Router } from "@angular/router";
+import { InicioComponent } from '../inicio/inicio.component'
 
 @Component({
   selector: 'app-sol-credito',
@@ -15,7 +16,9 @@ export class SolCreditoComponent implements OnInit {
   monto = 100;
   descripcion: "";
 
-  constructor(private matSnackBar: MatSnackBar, private servicio: RequestCreditService, private router: Router) { }
+  constructor(public padre:InicioComponent, private matSnackBar: MatSnackBar, private servicio: RequestCreditService, private router: Router) {
+    this.padre.cambiarSeleccion2();
+   }
 
   ngOnInit() {
 

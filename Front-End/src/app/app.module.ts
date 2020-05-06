@@ -21,6 +21,8 @@ import { DatePipe } from '@angular/common';
 import { registerLocaleData } from '@angular/common';
 import localeEsGT from '@angular/common/locales/es-GT';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 registerLocaleData(localeEsGT, 'es-Ar');
 
 @NgModule({
@@ -39,7 +41,8 @@ registerLocaleData(localeEsGT, 'es-Ar');
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [
     DatePipe,
