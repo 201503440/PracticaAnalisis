@@ -13,4 +13,26 @@ export class RequestCreditService {
   {
     return this.httpClient.post<any>(this.url + 'requestCredit', myData);
   }
+
+  getRequestCredit()
+  {
+    return this.httpClient.get<any>(this.url + 'getRequestCredit');
+  }
+
+  getRequestDetails( id:number )
+  {
+    return this.httpClient.get<any>(this.url + 'getRequestDetails/' + id);
+  }
+
+  acceptRequest( myData:any)
+  {
+    return this.httpClient.post<any>(this.url + 'acceptRequest', myData);
+  }
+  
+  cancelRequest( myData:any)
+  {
+    return this.httpClient.post<any>(this.url + 'cancelRequest', myData);
+  }  
+
+
 }

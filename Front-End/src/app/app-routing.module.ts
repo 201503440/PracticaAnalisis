@@ -5,6 +5,9 @@ import { InicioComponent } from './inicio/inicio.component';
 import { LoguinComponent } from './loguin/loguin.component';
 import { SolCreditoComponent } from './sol-credito/sol-credito.component';
 
+import { ListaSolicitudesComponent } from './lista-solicitudes/lista-solicitudes.component';
+import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -22,7 +25,9 @@ const routes: Routes = [
     path: 'principal',
     component: InicioComponent,
     children: [
-      { path: 'solicitar-credito', component: SolCreditoComponent }
+      { path: 'solicitar-credito', component: SolCreditoComponent },
+      { path: 'gestionar-solicitudes', component: ListaSolicitudesComponent },
+      { path: 'detalle-solicitud/:id', component: DetalleSolicitudComponent }
     ]
   }
 ];
