@@ -1,21 +1,3 @@
-<!--
-<div class="lgn">            
-            
-    <form (submit)="login($event)">
-      <div class="form-group">
-        <label for="exampleInputEmail1">UserName</label>
-        <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="User Name">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password">
-      </div>
-      <button type="submit" class="btn btn-primary">LOGIN</button>
-    </form>
-  </div>
- -->
-
- 
   <div class="wrapper fadeInDown">
     <div id="formContent">
       <!-- Tabs Titles -->
@@ -27,10 +9,11 @@
   
       <!-- Login Form -->
       <form (submit)="login($event)">
+        <input type="number" id="codigousuario" class="fadeIn second" placeholder="Code User">        
         <input type="text" id="username" class="fadeIn second" placeholder="UserName">
         <input type="password" id="password" class="fadeIn third" placeholder="Password">
         <input type="submit" class="fadeIn fourth" value="Log In">
       </form>
-  
+      <a href="/signup">Create an acount</a>
     </div>
   </div>

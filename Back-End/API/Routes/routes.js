@@ -3,6 +3,7 @@ module.exports  = function(app) {
     var test = require('../Controllers/TestController.js');
     var login = require('../Controllers/LoginController.js');
     var request = require('../Controllers/RequestCreditController');
+    var registro = require('../Controllers/RegistroController.js');
 
     app.route('/').get(main.initMain);
 
@@ -14,6 +15,7 @@ module.exports  = function(app) {
 
     // ===================================== RUTAS CESAR =======================================
     app.route('/login').post(login.Login);
+    app.route('/signup').post(registro.Registrar);
     // =================================== FIN RUTAS CESAR =====================================
 
 }

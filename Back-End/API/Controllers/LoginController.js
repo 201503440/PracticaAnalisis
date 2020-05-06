@@ -1,12 +1,13 @@
 const connection = require('../DB/dbconnection').config()
 
 exports.Login = function (req, res) {
-
-    connection.query(   `select u.idUsuario, u.UserName, u.Correo, u.Password, c.idCuenta, c.SaldoTotal, c.TipoCuenta, c.Usuario_idUsuario
-                        from Usuario u inner join
-                        Cuenta c on u.idUsuario = c.Usuario_idUsuario
-                        where UserName = ? and password = ?;`,
-                        [req.body.UserName,req.body.Password],
+    connection.query(   `select *
+                        from Usuario u inner join Cuenta c
+                        on u.idUsuario = c.Usuario_idUsuario
+                        where u.UserName = ? 
+                        and u.password = ?
+                        and c.idCuenta = ?;`,
+                        [req.body.UserName,req.body.Password, req.body.idUsuario],
         function (error, results, fields) {
             if (error) throw error;
             if (results.length > 0) {

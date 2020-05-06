@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoguinComponent } from './loguin/loguin.component';
 import { SolCreditoComponent } from './sol-credito/sol-credito.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,14 @@ const routes: Routes = [
     children: [
       { path: 'solicitar-credito', component: SolCreditoComponent }
     ]
+  { 
+		path:  'index', 
+		component:   InicioComponent,
+		pathMatch:  'full' 
+  },
+  {
+    path: 'signup',
+    component: SignUpComponent
   }
 ];
 

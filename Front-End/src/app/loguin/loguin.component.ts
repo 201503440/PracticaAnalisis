@@ -20,12 +20,14 @@ export class LoguinComponent implements OnInit {
     const target = event.target    
     let usuarioLogin: Usuario;
     usuarioLogin = {      
-      idUsuario: 0,
+      idUsuario: target.querySelector('#codigousuario').value,
+      Nombre: "",      
       UserName: target.querySelector('#username').value,
       Password: target.querySelector('#password').value,
       Correo: ""
     }
     this.serv.loginPost(usuarioLogin);
+    target.querySelector('#codigousuario').value = ''
     target.querySelector('#username').value = ''
     target.querySelector('#password').value = ''
   }
