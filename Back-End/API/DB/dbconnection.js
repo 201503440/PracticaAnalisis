@@ -6,7 +6,8 @@ var connection = mysql.createConnection({
     host: dbconfig.host,
     user: dbconfig.user,
     password: dbconfig.password,
-    database: dbconfig.database
+    database: dbconfig.database,
+    multipleStatements:true
 });
 // ======================================= FIN CONFIGURACIÓN MYSQL =======================================
 

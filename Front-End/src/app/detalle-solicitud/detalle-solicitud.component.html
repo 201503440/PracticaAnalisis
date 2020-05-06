@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="card">
+        <div class="card-header card-header-success">
+            <h4 class="card-title">Detalle de la Solicitud</h4>
+            <p class="card-category">A continuación se detalla la solicitud No. {{ miCredito['idCredito'] }}</p>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Nombre del Usuario:</label>
+                            <input style="text-align: center; align-content: center; font-size: 20px;" type="text" class="form-control"
+                                value="{{ miCredito['Nombre'] }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Nickname:</label>
+                            <input style="text-align: center; align-content: center; font-size: 20px;" type="text" class="form-control"
+                                value="{{ miCredito['UserName'] }}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Fecha de la Solicitud:</label>
+                            <input style="text-align: center; align-content: center; font-size: 20px;" type="text" class="form-control"
+                                value="{{ miCredito['fecha_solicitud'] | date:'mediumDate':'UTC' }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Fecha de Resolución:</label>
+
+                            <div *ngIf="miCredito['fecha_resolucion']===null; else elseBlock">
+                                <input style="text-align: center; align-content: center; font-size: 20px;" type="text"
+                                    class="form-control" value="Sin Resolver" readonly>
+                            </div>
+
+                            <ng-template #elseBlock>
+                                <input style="text-align: center; align-content: center; font-size: 20px;" type="text"
+                                    class="form-control"
+                                    value="{{ miCredito['fecha_resolucion'] | date:'mediumDate':'UTC' }}" readonly>
+                            </ng-template>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Descripción de la Solicitud</label>
+                            <div class="form-group">
+                                <textarea style="text-align: center; vertical-align: middle; font-size: 20px;" class="form-control" rows="5" readonly>{{ miCredito['Descripcion'] }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="miCredito['fecha_resolucion']===null; else elseBlock">
+                    <button type="submit" class="btn btn-success pull-right" (click)="aceptarSolicitud()">Aceptar</button>
+                    <button style="margin-right: 20px;" type="submit"
+                        class="btn btn-danger pull-right" (click)="rechazarSolicitud()">Rechazar</button>
+                </div>
+
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+</div>
