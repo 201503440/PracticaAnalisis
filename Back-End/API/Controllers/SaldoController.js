@@ -16,7 +16,6 @@ exports.getSaldo = function (req, res) {
                     }
                 );
             } else {
-                console.log(results)
                 res.json(
                     {
                         status: 0,

@@ -9,6 +9,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { ListaSolicitudesComponent } from './lista-solicitudes/lista-solicitudes.component';
 import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud.component';
 import { TransferenciasComponent } from './transferencias/transferencias.component';
+import { ConsultarComponent } from './consultar/consultar.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
       { path: 'solicitar-credito', component: SolCreditoComponent },
       { path: 'gestionar-solicitudes', component: ListaSolicitudesComponent },
       { path: 'detalle-solicitud/:id', component: DetalleSolicitudComponent },
-      { path: 'transferencias', component: TransferenciasComponent }
+      { path: 'transferencias', component: TransferenciasComponent },
+      { path: 'saldo', component: ConsultarComponent }
     ]
   },
   { 
