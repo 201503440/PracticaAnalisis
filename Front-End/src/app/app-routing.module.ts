@@ -25,6 +25,7 @@ const routes: Routes = [
     children: [
       { path: 'solicitar-credito', component: SolCreditoComponent }
     ]
+  },
   { 
 		path:  'index', 
 		component:   InicioComponent,
