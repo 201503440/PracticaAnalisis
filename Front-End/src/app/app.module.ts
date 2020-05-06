@@ -8,12 +8,14 @@ import { InicioComponent } from './inicio/inicio.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { LoguinComponent } from './loguin/loguin.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
-    LoguinComponent
+    LoguinComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

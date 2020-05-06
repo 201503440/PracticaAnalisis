@@ -1,0 +1,21 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+    <h1>SIGNUP</h1>
+      <!-- Login Form -->
+      <form (submit)="signup($event)">
+        <input type="text" id="nombre" class="fadeIn first" placeholder="FullName">
+        <input pattern="(\w*(\d+[a-zA-Z]|[a-zA-Z]+\d)\w*)+"
+        title="Debe ser alfanumerico" maxlength="12" type="text" id="username" class="fadeIn second" placeholder="UserName">
+        <input type="email" id="email" class="fadeIn second" placeholder="Email">
+        <input pattern="(\w*(\d+[a-zA-Z]|[a-zA-Z]+\d)\w*)+"
+        title="Debe ser alfanumerico" minlength="8" maxlength="8" type="password" id="password" class="fadeIn third" placeholder="Password">
+        <input pattern="(\w*(\d+[a-zA-Z]|[a-zA-Z]+\d)\w*)+"
+        title="Debe ser alfanumerico" minlength="8" maxlength="8" type="password" id="password2" class="fadeIn third" placeholder="Repeat Password">
+        <input type="submit" class="fadeIn fourth" value="SIGNUP">
+        <br>
+        <a href="">Login</a>
+      </form>
+  
+    </div>
+  </div>
