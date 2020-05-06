@@ -1,0 +1,8 @@
+<div class="transferencia" id="formContent">    
+    <form (submit)="transferir($event)">
+    <h3>TRANSFERENCIA</h3>
+    <input pattern="[0-9]*" title="Solo numeros enteros." type="number" id="cuentadestino" class="fadeIn second" placeholder="Cuenta destino">
+    <input pattern="\d*" step="0.01" title="Monto solo acepta numeros con dos decimales." type="number" id="monto" class="fadeIn third" placeholder="Monto">
+    <input type="submit" class="btn btn-success" value="TRANSFERIR">
+    </form>        
+</div>
