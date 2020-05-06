@@ -20,6 +20,7 @@ import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud
 import { DatePipe } from '@angular/common';
 import { registerLocaleData } from '@angular/common';
 import localeEsGT from '@angular/common/locales/es-GT';
+import { TransferenciasComponent } from './transferencias/transferencias.component';
 
 registerLocaleData(localeEsGT, 'es-Ar');
 
@@ -31,7 +32,8 @@ registerLocaleData(localeEsGT, 'es-Ar');
     SolCreditoComponent,
     SignUpComponent,
     ListaSolicitudesComponent,
-    DetalleSolicitudComponent
+    DetalleSolicitudComponent,
+    TransferenciasComponent
   ],
   imports: [
     BrowserModule,
