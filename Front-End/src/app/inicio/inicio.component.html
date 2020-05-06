@@ -15,27 +15,27 @@
     </div>
     <div class="sidebar-wrapper">
       <ul class="nav">
-        <li class="nav-item active  ">
-          <a class="nav-link" routerLink="/principal">
+        <li [ngClass]="(seleccion1)?'nav-item active':'nav-item'">
+          <a class="nav-link" routerLink="/principal" (click)="ponerFalso(true,false,false,false)">
             <i class="material-icons">dashboard</i>
             <p>Dashboard</p>
           </a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link" routerLink="/principal/solicitar-credito">
+        <li [ngClass]="(seleccion2)?'nav-item active':'nav-item'">
+          <a class="nav-link" routerLink="/principal/solicitar-credito" (click)="ponerFalso(false,true,false,false)">
             <i class="material-icons">credit_card</i>
             <p>Solicitar Crédito</p>
           </a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link" routerLink="/principal/gestionar-solicitudes">
+        <li  [ngClass]="(seleccion3)?'nav-item active':'nav-item'">
+          <a class="nav-link" routerLink="/principal/gestionar-solicitudes" (click)="ponerFalso(false,false,true,false)">
             <i class="material-icons">assignment</i>
             <p>Gestionar Solicitudes</p>
           </a>
         </li>
 
-        <li>
-          <a class="nav-link" routerLink="/principal/transferencias">
+        <li  [ngClass]="(seleccion4)?'nav-item active':'nav-item'">
+          <a class="nav-link" routerLink="/principal/transferencias" (click)="ponerFalso(false,false,false,true)">
             <i class="material-icons">unarchive</i>
             <p>Transferencias</p>
           </a>
@@ -45,9 +45,9 @@
       </ul>
     </div>
   </div>
-  <div class="main-panel">
+  <div class="main-panel" style="margin-left: 16%; margin-top: 100px;">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+    <nav  class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
       <div class="container-fluid">
         <div class="navbar-wrapper">
           <div class="row">
