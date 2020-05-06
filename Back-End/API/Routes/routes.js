@@ -5,6 +5,7 @@ module.exports  = function(app) {
     var request = require('../Controllers/RequestCreditController');
     var registro = require('../Controllers/RegistroController.js');
     var transferencia = require('../Controllers/TransferenciaController.js');
+    var saldo = require('../Controllers/SaldoController.js');
 
     app.route('/').get(main.initMain);
 
@@ -24,6 +25,7 @@ module.exports  = function(app) {
     app.route('/signup').post(registro.Registrar);
     app.route('/saldo').post(transferencia.Saldo);
     app.route('/transferencia').post(transferencia.Transferir);
+    app.route('/getSaldo').post(saldo.getSaldo);
     // =================================== FIN RUTAS CESAR =====================================
 
 }

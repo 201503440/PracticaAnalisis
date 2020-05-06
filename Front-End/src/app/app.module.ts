@@ -23,6 +23,7 @@ import localeEsGT from '@angular/common/locales/es-GT';
 import { TransferenciasComponent } from './transferencias/transferencias.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ConsultarComponent } from './consultar/consultar.component';
 
 registerLocaleData(localeEsGT, 'es-Ar');
 
@@ -35,7 +36,8 @@ registerLocaleData(localeEsGT, 'es-Ar');
     SignUpComponent,
     ListaSolicitudesComponent,
     DetalleSolicitudComponent,
-    TransferenciasComponent
+    TransferenciasComponent,
+    ConsultarComponent
   ],
   imports: [
     BrowserModule,
