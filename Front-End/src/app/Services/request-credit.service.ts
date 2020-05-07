@@ -44,5 +44,15 @@ export class RequestCreditService {
     return this.httpClient.post<any>(this.url + 'payCredit', myData);
   }
 
+  getBalance( myData:any)
+  {
+    return this.httpClient.post<any>(this.url + 'getBalance', myData);
+  }
+
+  debitBalance( myData:any)
+  {
+    return this.httpClient.post<any>(this.url + 'debitBalance', myData);
+  }
+
 
 }

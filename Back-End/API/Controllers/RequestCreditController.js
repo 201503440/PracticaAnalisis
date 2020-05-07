@@ -159,6 +159,8 @@ exports.payCredit = function (req, res) {
     var monto = req.body.monto;
     var cuenta = req.body.cuenta;
     var idCredito = req.body.idCredito;
+    var idUsuario = req.body.idUsuario
+    var descripcion = req.body.descripcion
 
     
     connection.query(   `UPDATE Cuenta
@@ -170,8 +172,65 @@ exports.payCredit = function (req, res) {
                         SET
                             cancelado = 1
                         WHERE
-                            idCredito=?;`,
-                        [monto,cuenta,idCredito],
+                            idCredito=?;
+                        INSERT INTO Debito(MontoDebitar,Usuario_idUsuario,descripcion)
+                        VALUES(?,?,?)`,
+                        [monto,cuenta,idCredito,monto,idUsuario,descripcion],
+        function (error, results, fields) {
+            if (error) throw error;
+
+            res.json(
+                {
+                    status: 'correcto',
+                    info: 'Crédito creado correctamente'
+                }
+            );
+
+        });
+}
+
+
+exports.getBalance = function (req, res) {
+
+    var monto = req.body.monto;
+    var idCuenta = req.body.idCuenta;
+
+    connection.query(`SELECT u.idUsuario, (CASE WHEN c.SaldoTotal>=? THEN 1 ELSE 0 END) AS posible_pagar FROM Cuenta c, Usuario u
+                        WHERE u.idUsuario=c.Usuario_idUsuario
+                        AND c.idCuenta=?;`,
+                        [monto,idCuenta],
+        function (error, results, fields) {
+            if (error) throw error;
+
+            res.json(
+                {
+                    status: 'correcto',
+                    info: results
+                }
+            );
+
+        });
+
+
+}
+
+
+exports.debitBalance = function (req, res) {
+
+    var monto = req.body.monto;
+    var cuenta = req.body.cuenta;
+    var idUsuario = req.body.idUsuario
+    var descripcion = req.body.descripcion
+
+    
+    connection.query(   `UPDATE Cuenta
+                        SET 
+                            SaldoTotal = SaldoTotal-?
+                        WHERE
+                            idCuenta = ?;
+                        INSERT INTO Debito(MontoDebitar,Usuario_idUsuario,descripcion)
+                        VALUES(?,?,?)`,
+                        [monto,cuenta,monto,idUsuario,descripcion],
         function (error, results, fields) {
             if (error) throw error;
 

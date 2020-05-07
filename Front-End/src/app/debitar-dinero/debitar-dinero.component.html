@@ -3,7 +3,8 @@
         <div class="card">
             <div class="card-header card-header-info">
                 <h4 class="card-title ">Créditos Pendientes de Pago</h4>
-                <p class="card-category"> A continuación se detallan todos los creditos cuyas fechas de pago han expirado</p>
+                <p class="card-category"> A continuación se detallan todos los creditos cuyas fechas de pago han
+                    expirado</p>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -54,7 +55,8 @@
                                 <td style="text-align: center; vertical-align: middle;">
 
                                     <div *ngIf="solicitud['posible_cobrar']===1; else elseBlock">
-                                        <button class="btn btn-danger btn-block" (click)="debitar(solicitud['idCredito'],solicitud['NumeroCuenta'],solicitud['MontoASolicitar'],solicitud['Nombre'])">Cobrar</button>
+                                        <button class="btn btn-danger btn-block"
+                                            (click)="debitar(solicitud['idCredito'],solicitud['NumeroCuenta'],solicitud['MontoASolicitar'],solicitud['Nombre'],solicitud['idUsuario'])">Cobrar</button>
                                     </div>
 
                                     <ng-template #elseBlock>
@@ -66,6 +68,47 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h2>Débito Manual</h2>
+<br>
+<div class="row" style="align-items: center;">
+    <div class="col-md-8" style="align-items: center;">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title">Débito Manual</h4>
+                <p class="card-category">Ingrese los datos necesarios para poder realizar un débito de saldo</p>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Número de Cuenta:</label>
+                                <input type="number" class="form-control" [(ngModel)]="cuentaInput" name="cuentaInput">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Monto:</label>
+                                <br>
+                                <input type="number" class="form-control" [(ngModel)]="montoInput" name="montoInput">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Descripción</label>
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="5" [(ngModel)]="descripcionInput" name="descripcionInput"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right" (click)="debitar2()">Realizar Cobro</button>
+                    <div class="clearfix"></div>
+                </form>
             </div>
         </div>
     </div>
