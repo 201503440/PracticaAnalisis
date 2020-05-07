@@ -84,7 +84,7 @@ export class DetalleSolicitudComponent implements OnInit {
 
       console.log(data);
       if (data['status'] == 'correcto') {
-        this.matSnackBar.open('Prestamo acreditado correctamente', 'Aceptar', {
+        this.matSnackBar.open('El prestamo ha sido rechazado', 'Aceptar', {
           duration: 2000,
         });
       }

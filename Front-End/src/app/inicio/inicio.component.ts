@@ -13,12 +13,16 @@ export class InicioComponent implements OnInit {
   seleccion2:boolean = false;
   seleccion3:boolean = false;
   seleccion4:boolean = false;
+  seleccion5:boolean = false;
+  seleccion6:boolean = false;
 
   anterior : boolean = false;
 
   miUsuario:any;
 
-  constructor(private matSnackBar: MatSnackBar,private router: Router) { }
+  constructor(private matSnackBar: MatSnackBar,private router: Router) { 
+    //this.seleccion1=true;
+  }
 
   ngOnInit() {
     this.miUsuario = JSON.parse(localStorage.getItem("currentUser"))
@@ -58,12 +62,24 @@ export class InicioComponent implements OnInit {
     this.seleccion4=true;
   }
 
-  ponerFalso(val1, val2, val3, val4)
+  cambiarSeleccion5()
+  {
+    this.seleccion5=true;
+  }
+
+  cambiarSeleccion6()
+  {
+    this.seleccion6=true;
+  }
+
+  ponerFalso(val1, val2, val3, val4,val5,val6)
   {
     this.seleccion1 = val1;
     this.seleccion2 = val2;
     this.seleccion3 = val3;
     this.seleccion4 = val4;
+    this.seleccion5 = val5;
+    this.seleccion6 = val6;
   }
   
 

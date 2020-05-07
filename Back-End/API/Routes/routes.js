@@ -18,6 +18,8 @@ module.exports  = function(app) {
 
     app.route('/acceptRequest').post(request.acceptRequest);
     app.route('/cancelRequest').post(request.cancelRequest);
+    app.route('/getCreditsToPay').get(request.getCreditsToPay);
+    app.route('/payCredit').post(request.payCredit);
     // =================================== FIN RUTAS ARIELBM ===================================
 
     // ===================================== RUTAS CESAR =======================================

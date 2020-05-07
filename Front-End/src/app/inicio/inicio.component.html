@@ -16,33 +16,40 @@
     <div class="sidebar-wrapper">
       <ul class="nav">
         <li [ngClass]="(seleccion1)?'nav-item active':'nav-item'">
-          <a class="nav-link" routerLink="/principal" (click)="ponerFalso(true,false,false,false)">
+          <a class="nav-link" routerLink="/principal" (click)="ponerFalso(true,false,false,false,false,false)">
             <i class="material-icons">dashboard</i>
             <p>Dashboard</p>
           </a>
         </li>
         <li [ngClass]="(seleccion2)?'nav-item active':'nav-item'">
-          <a class="nav-link" routerLink="/principal/solicitar-credito" (click)="ponerFalso(false,true,false,false)">
+          <a class="nav-link" routerLink="/principal/solicitar-credito" (click)="ponerFalso(false,true,false,false,false,false)">
             <i class="material-icons">credit_card</i>
             <p>Solicitar Crédito</p>
           </a>
         </li>
         <li  [ngClass]="(seleccion3)?'nav-item active':'nav-item'">
-          <a class="nav-link" routerLink="/principal/gestionar-solicitudes" (click)="ponerFalso(false,false,true,false)">
+          <a class="nav-link" routerLink="/principal/gestionar-solicitudes" (click)="ponerFalso(false,false,true,false,false,false)">
             <i class="material-icons">assignment</i>
             <p>Gestionar Solicitudes</p>
           </a>
         </li>
 
         <li  [ngClass]="(seleccion4)?'nav-item active':'nav-item'">
-          <a class="nav-link" routerLink="/principal/transferencias" (click)="ponerFalso(false,false,false,true)">
+          <a class="nav-link" routerLink="/principal/transferencias" (click)="ponerFalso(false,false,false,true,false,false)">
             <i class="material-icons">unarchive</i>
             <p>Transferencias</p>
           </a>
         </li>
 
-        <li class="nav-item ">
-          <a class="nav-link" href="/principal/saldo">
+        <li  [ngClass]="(seleccion5)?'nav-item active':'nav-item'">
+          <a class="nav-link" routerLink="/principal/debitar-dinero" (click)="ponerFalso(false,false,false,false,true,false)">
+            <i class="material-icons">dns</i>
+            <p>Debitar Créditos</p>
+          </a>
+        </li>
+
+        <li  [ngClass]="(seleccion6)?'nav-item active':'nav-item'">
+          <a class="nav-link" routerLink="/principal/saldo" (click)="ponerFalso(false,false,false,false,false,true)">
             <i class="material-icons">content_paste</i>
             <p>Consultar Saldo</p>
           </a>

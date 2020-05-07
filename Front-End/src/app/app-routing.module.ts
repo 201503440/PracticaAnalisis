@@ -11,6 +11,8 @@ import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud
 import { TransferenciasComponent } from './transferencias/transferencias.component';
 import { ConsultarComponent } from './consultar/consultar.component';
 
+import { DebitarDineroComponent } from './debitar-dinero/debitar-dinero.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -32,7 +34,8 @@ const routes: Routes = [
       { path: 'gestionar-solicitudes', component: ListaSolicitudesComponent },
       { path: 'detalle-solicitud/:id', component: DetalleSolicitudComponent },
       { path: 'transferencias', component: TransferenciasComponent },
-      { path: 'saldo', component: ConsultarComponent }
+      { path: 'saldo', component: ConsultarComponent },
+      { path: 'debitar-dinero', component: DebitarDineroComponent }
     ]
   },
   { 
