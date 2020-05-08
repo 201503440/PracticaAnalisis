@@ -1,0 +1,19 @@
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1200px-User_icon_2.svg.png" id="icon" alt="User Icon" />
+      </div>
+  
+      <!-- Login Form -->
+      <form (submit)="login($event)">
+        <input type="number" id="codigousuario" class="fadeIn second" placeholder="Code User">        
+        <input type="text" id="username" class="fadeIn second" placeholder="UserName">
+        <input type="password" id="password" class="fadeIn third" placeholder="Password">
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </form>
+      <a href="/signup">Create an acount</a>
+    </div>
+  </div>

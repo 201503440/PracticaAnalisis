@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-info">
+                <h4 class="card-title ">Solicitudes de Crédito</h4>
+                <p class="card-category"> A continuación se muestran todas las solicitudes de crédito recibidas en el
+                    sistema.</p>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-info">
+                            <th style="text-align: center; vertical-align: middle;">
+                                ID Solicitud
+                            </th>
+                            <th style="text-align: center; vertical-align: middle;">
+                                Usuario
+                            </th>
+                            <th style="text-align: center; vertical-align: middle;">
+                                Monto
+                            </th>
+                            <th style="text-align: center; vertical-align: middle;">
+                                Fecha de la Solicitud
+                            </th>
+                            <th style="text-align: center; vertical-align: middle;">
+                                Estado
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let solicitud of misSolicitudes; let n = index">
+                                <td style="text-align: center; vertical-align: middle;">
+                                    {{ solicitud["idCredito"] }}
+                                </td>
+                                <td style="text-align: center; vertical-align: middle;">
+                                    {{ solicitud["UserName"] }}
+                                </td>
+                                <td style="text-align: center; vertical-align: middle;" class="text-success">
+                                    Q.{{ solicitud["MontoASolicitar"] }}
+                                </td>
+                                <td style="text-align: center; vertical-align: middle;">
+                                    {{ solicitud["fecha_solicitud"] | date:'mediumDate':'UTC' }}
+                                </td>
+                                <td style="text-align: center; vertical-align: middle;">
+
+                                    <div *ngIf="solicitud['estado']===2; else elseBlock">
+                                        <button class="btn btn-info btn-block" routerLink="/principal/detalle-solicitud/{{ solicitud['idCredito'] }}">Sin Resolver</button>
+                                    </div>
+
+                                    <ng-template #elseBlock>
+                                        <div *ngIf="solicitud['estado']===1; else elseBlock2">
+                                            <button class="btn btn-success btn-block" routerLink="/principal/detalle-solicitud/{{ solicitud['idCredito'] }}">Aceptado</button>
+                                        </div>
+
+                                        <ng-template #elseBlock2>
+                                            <button class="btn btn-danger btn-block" routerLink="/principal/detalle-solicitud/{{ solicitud['idCredito'] }}" >Rechazado</button>
+                                        </ng-template>
+                                    </ng-template>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
