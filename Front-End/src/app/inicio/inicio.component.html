@@ -27,7 +27,7 @@
             <p>Solicitar Crédito</p>
           </a>
         </li>
-        <li  [ngClass]="(seleccion3)?'nav-item active':'nav-item'">
+        <li *ngIf="SoloAdmin"  [ngClass]="(seleccion3)?'nav-item active':'nav-item'">
           <a class="nav-link" routerLink="/principal/gestionar-solicitudes" (click)="ponerFalso(false,false,true,false,false,false)">
             <i class="material-icons">assignment</i>
             <p>Gestionar Solicitudes</p>
@@ -41,7 +41,7 @@
           </a>
         </li>
 
-        <li  [ngClass]="(seleccion5)?'nav-item active':'nav-item'">
+        <li *ngIf="SoloAdmin" [ngClass]="(seleccion5)?'nav-item active':'nav-item'">
           <a class="nav-link" routerLink="/principal/debitar-dinero" (click)="ponerFalso(false,false,false,false,true,false)">
             <i class="material-icons">dns</i>
             <p>Debitar Créditos</p>
@@ -58,10 +58,11 @@
         <!-- your sidebar here -->
       </ul>
     </div>
-  </div>
-  <div class="main-panel" style="margin-left: 16%; margin-top: 100px;">
+  </div>  
+  <div class="main-panel" style="margin-left: 20%; margin-top: 100px;">
     <!-- Navbar -->
     <nav  class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+      <h3>WELCOME TO GTBank S.A.</h3>
       <div class="container-fluid">
         <div class="navbar-wrapper">
           <div class="row">

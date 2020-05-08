@@ -16,6 +16,8 @@ export class InicioComponent implements OnInit {
   seleccion5:boolean = false;
   seleccion6:boolean = false;
 
+  SoloAdmin:boolean = false;
+
   anterior : boolean = false;
 
   miUsuario:any;
@@ -31,6 +33,10 @@ export class InicioComponent implements OnInit {
     {
       this.router.navigate(['/']);
     }
+    if (this.miUsuario["idUsuario"] === 1) {
+      this.SoloAdmin = true;
+    }
+
   }
 
   actionBoton()
