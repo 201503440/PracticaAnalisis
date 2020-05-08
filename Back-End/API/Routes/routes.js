@@ -13,11 +13,17 @@ module.exports  = function(app) {
     app.route('/test/getUser').get(test.getUser);
     app.route('/test/setUser').post(test.setUser);
     app.route('/requestCredit').post(request.requestCredit);
+
     app.route('/getRequestCredit').get(request.getRequestCredit);
     app.route('/getRequestDetails/:id').get(request.getRequestDetails);
-
     app.route('/acceptRequest').post(request.acceptRequest);
+
     app.route('/cancelRequest').post(request.cancelRequest);
+    app.route('/getCreditsToPay').get(request.getCreditsToPay);
+    app.route('/payCredit').post(request.payCredit);
+
+    app.route('/getBalance').post(request.getBalance);
+    app.route('/debitBalance').post(request.debitBalance);
     // =================================== FIN RUTAS ARIELBM ===================================
 
     // ===================================== RUTAS CESAR =======================================

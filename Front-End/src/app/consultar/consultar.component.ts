@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SaldoService } from '../Services/saldo.service';
+import { InicioComponent } from '../inicio/inicio.component'
 
 @Component({
   selector: 'app-consultar',
@@ -10,7 +11,9 @@ export class ConsultarComponent implements OnInit {
 
   saldo: any = 0;
 
-  constructor(private saldoS: SaldoService) { }
+  constructor(public padre: InicioComponent,private saldoS: SaldoService) {
+    this.padre.cambiarSeleccion6();
+   }
 
   ngOnInit() {
     this.saldoS.getSaldo().subscribe((data) => { 

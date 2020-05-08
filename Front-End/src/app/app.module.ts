@@ -24,6 +24,7 @@ import { TransferenciasComponent } from './transferencias/transferencias.compone
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConsultarComponent } from './consultar/consultar.component';
+import { DebitarDineroComponent } from './debitar-dinero/debitar-dinero.component';
 
 registerLocaleData(localeEsGT, 'es-Ar');
 
@@ -37,7 +38,8 @@ registerLocaleData(localeEsGT, 'es-Ar');
     ListaSolicitudesComponent,
     DetalleSolicitudComponent,
     TransferenciasComponent,
-    ConsultarComponent
+    ConsultarComponent,
+    DebitarDineroComponent
   ],
   imports: [
     BrowserModule,

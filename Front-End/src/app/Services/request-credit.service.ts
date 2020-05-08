@@ -32,7 +32,27 @@ export class RequestCreditService {
   cancelRequest( myData:any)
   {
     return this.httpClient.post<any>(this.url + 'cancelRequest', myData);
-  }  
+  }
+  
+  getCreditsToPay()
+  {
+    return this.httpClient.get<any>(this.url + 'getCreditsToPay');
+  }
+
+  payCredit( myData:any)
+  {
+    return this.httpClient.post<any>(this.url + 'payCredit', myData);
+  }
+
+  getBalance( myData:any)
+  {
+    return this.httpClient.post<any>(this.url + 'getBalance', myData);
+  }
+
+  debitBalance( myData:any)
+  {
+    return this.httpClient.post<any>(this.url + 'debitBalance', myData);
+  }
 
 
 }

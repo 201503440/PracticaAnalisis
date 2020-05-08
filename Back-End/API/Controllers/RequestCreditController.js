@@ -76,7 +76,6 @@ exports.acceptRequest = function (req, res) {
     var monto = req.body.monto;
     var cuenta = req.body.cuenta;
     var fechaPago = req.body.fechaPago
-    console.log(fechaPago)
     var idCredito = req.body.idCredito;
 
     
@@ -124,6 +123,121 @@ exports.cancelRequest = function (req, res) {
                 {
                     status: 'correcto',
                     info: 'Solicitud ingresada correctamente'
+                }
+            );
+
+        });
+}
+
+
+exports.getCreditsToPay = function (req, res) {
+
+    connection.query(`SELECT c.idCredito, c.MontoASolicitar, c.NumeroCuenta, u.UserName, u.Nombre, c.fecha_pago, c.fecha_resolucion, c.fecha_solicitud, r.SaldoTotal, (CASE WHEN c.MontoASolicitar <= r.SaldoTotal THEN 1 ELSE 0 END) AS posible_cobrar  FROM Credito c, Usuario u, Cuenta r
+                        WHERE c.cancelado=0
+                        AND c.fecha_pago<CURDATE()
+                        AND c.Usuario_idUsuario=u.idUsuario
+                        AND c.NumeroCuenta=r.idCuenta;`,
+        [],
+        function (error, results, fields) {
+            if (error) throw error;
+
+            res.json(
+                {
+                    status: 'correcto',
+                    info: results
+                }
+            );
+
+        });
+
+
+}
+
+
+exports.payCredit = function (req, res) {
+
+    var monto = req.body.monto;
+    var cuenta = req.body.cuenta;
+    var idCredito = req.body.idCredito;
+    var idUsuario = req.body.idUsuario
+    var descripcion = req.body.descripcion
+
+    
+    connection.query(   `UPDATE Cuenta
+                        SET 
+                            SaldoTotal = SaldoTotal-?
+                        WHERE
+                            idCuenta = ?;
+                        UPDATE Credito
+                        SET
+                            cancelado = 1
+                        WHERE
+                            idCredito=?;
+                        INSERT INTO Debito(MontoDebitar,Usuario_idUsuario,descripcion)
+                        VALUES(?,?,?)`,
+                        [monto,cuenta,idCredito,monto,idUsuario,descripcion],
+        function (error, results, fields) {
+            if (error) throw error;
+
+            res.json(
+                {
+                    status: 'correcto',
+                    info: 'Crédito creado correctamente'
+                }
+            );
+
+        });
+}
+
+
+exports.getBalance = function (req, res) {
+
+    var monto = req.body.monto;
+    var idCuenta = req.body.idCuenta;
+
+    connection.query(`SELECT u.idUsuario, (CASE WHEN c.SaldoTotal>=? THEN 1 ELSE 0 END) AS posible_pagar FROM Cuenta c, Usuario u
+                        WHERE u.idUsuario=c.Usuario_idUsuario
+                        AND c.idCuenta=?;`,
+                        [monto,idCuenta],
+        function (error, results, fields) {
+            if (error) throw error;
+
+            res.json(
+                {
+                    status: 'correcto',
+                    info: results
+                }
+            );
+
+        });
+
+
+}
+
+
+exports.debitBalance = function (req, res) {
+
+    var monto = req.body.monto;
+    var cuenta = req.body.cuenta;
+    var idUsuario = req.body.idUsuario
+    var descripcion = req.body.descripcion
+
+    
+    connection.query(   `UPDATE Cuenta
+                        SET 
+                            SaldoTotal = SaldoTotal-?
+                        WHERE
+                            idCuenta = ?;
+                        INSERT INTO Debito(MontoDebitar,Usuario_idUsuario,descripcion)
+                        VALUES(?,?,?)`,
+                        [monto,cuenta,monto,idUsuario,descripcion],
+        function (error, results, fields) {
+            if (error) throw error;
+
+            res.json(
+                {
+                    status: 'correcto',
+                    info: 'Crédito creado correctamente'
                 }
             );
 

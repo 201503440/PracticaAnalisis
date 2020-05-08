@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { TransferenciaService } from '../Services/transferencia.service';
+import { InicioComponent } from '../inicio/inicio.component'
 
 @Component({
   selector: 'app-transferencias',
@@ -9,8 +10,10 @@ import { TransferenciaService } from '../Services/transferencia.service';
 })
 export class TransferenciasComponent implements OnInit {
 
-  constructor(private matSnackBar: MatSnackBar,
-              private transService: TransferenciaService) { }
+  constructor(public padre:InicioComponent,private matSnackBar: MatSnackBar,
+              private transService: TransferenciaService) {
+                this.padre.cambiarSeleccion4();
+               }
 
   ngOnInit() {
   }
