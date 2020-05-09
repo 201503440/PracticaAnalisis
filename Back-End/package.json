@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/201503440/PracticaAnalisis#readme",
   "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "mocha": "^7.1.2",
     "mysql": "^2.18.1"
   }
 }
