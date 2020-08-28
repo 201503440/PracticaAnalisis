@@ -9,8 +9,8 @@ app.use(bodyParser.json());
 //______________________________________________________________________
 const cors = require('cors');
 var corsOptions = {
-  origin: 'http://localhost:4200',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
+    origin: '*',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
 }
 app.use(cors(corsOptions));
 //______________________________________________________________________
@@ -18,6 +18,6 @@ app.use(cors(corsOptions));
 var routes = require('../API/Routes/routes.js');
 routes(app);
 
-app.listen(port, () => {    
+app.listen(port, () => {
     console.log(`Server running in http://localhost:${port}`);
 });
